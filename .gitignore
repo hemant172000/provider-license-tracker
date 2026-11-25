@@ -1,0 +1,9 @@
+node_modules/
+target/
+.idea/
+.vscode/
+uploads/
+build/
+.env
+*.log
+HELP.md

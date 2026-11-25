@@ -1,0 +1,192 @@
+/* EditProjectModal.css */
+
+.epm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: epm-fade 0.15s ease;
+}
+
+@keyframes epm-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.epm-modal {
+  background: var(--card-bg, #fff);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  overflow: hidden;
+  animation: epm-slide 0.2s ease;
+}
+
+@keyframes epm-slide {
+  from { transform: translateY(16px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.epm-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: #fff;
+}
+
+.epm-header-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.epm-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.epm-title  { font-size: 18px; font-weight: 700; margin: 0 0 2px; color: #fff; }
+.epm-subtitle { font-size: 12px; margin: 0; opacity: 0.85; }
+
+.epm-close {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  transition: background 0.15s;
+}
+.epm-close:hover { background: rgba(255,255,255,0.3); }
+
+.epm-body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.epm-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.epm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.epm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.epm-full { grid-column: 1 / -1; }
+
+.epm-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text, #374151);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.epm-label i { color: #11998e; font-size: 11px; }
+
+.epm-input {
+  padding: 9px 12px;
+  border: 1.5px solid var(--border, #d1d5db);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text, #111827);
+  background: var(--page-bg, #f9fafb);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+.epm-input:focus {
+  border-color: #11998e;
+  box-shadow: 0 0 0 3px rgba(17,153,142,0.12);
+  background: #fff;
+}
+
+.epm-textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+.epm-footer {
+  padding: 14px 24px;
+  border-top: 1px solid var(--border, #e5e7eb);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  background: var(--page-bg, #f9fafb);
+}
+
+.epm-btn {
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: none;
+  transition: all 0.15s;
+}
+
+.epm-btn-cancel {
+  background: var(--card-bg, #fff);
+  color: var(--text, #374151);
+  border: 1.5px solid var(--border, #d1d5db);
+}
+.epm-btn-cancel:hover { background: var(--border, #e5e7eb); }
+
+.epm-btn-save {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(17,153,142,0.3);
+}
+.epm-btn-save:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(17,153,142,0.4);
+}
+.epm-btn-save:disabled { opacity: 0.65; cursor: not-allowed; }
+
+@media (max-width: 520px) {
+  .epm-grid { grid-template-columns: 1fr; }
+  .epm-full { grid-column: 1; }
+}
