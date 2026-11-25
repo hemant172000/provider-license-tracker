@@ -59,7 +59,10 @@ On macOS/Linux use `cp .env.example .env`. The app runs on http://localhost:3000
 A default admin user is created on first start: `admin` / `admin123` (demo only). Create the other roles from the admin dashboard.
 
 ## Screenshots
-Add screenshots here (fake data only).
+
+Some Screenshots of the project:
+
+https://drive.google.com/drive/folders/1zRuaspLd4gRGkymdL-pTi4oM1zroeKs-?usp=sharing
 
 ## Notes
 Uploaded files are stored in an `uploads/` folder next to where the backend is run.
